@@ -5,6 +5,10 @@
 		zephyr,display = &st7789v;
 	};
 
+	aliases {
+		led0 = &tft_backlight;
+	};
+
 	mipi_dbi {
 		compatible = "zephyr,mipi-dbi-spi";
 		status = "okay";
@@ -47,6 +51,14 @@
 			nvgam-param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];
 			ram-param = [00 F0];
 			rgb-param = [CD 08 14];
+		};
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		tft_backlight: led_0 {
+			gpios = <&gpiob 7 GPIO_ACTIVE_HIGH>;
+			label = "TFT LCD Backlight";
 		};
 	};
 };
