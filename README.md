@@ -26,3 +26,15 @@ $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
 ```
 
+
+Step 3: Examples
+
+```
+$ cd ~/zephyrproject/zephyr/samples/hello_world
+
+# Add modules (Optional)
+$ west build -t menuconfig
+
+$ west build -b pandora_stm32l475
+$ west flash
+```
