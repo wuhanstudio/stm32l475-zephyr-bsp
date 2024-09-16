@@ -1,4 +1,4 @@
-# Quick Start
+## Quick Start
 
 Step 1: Install Zephyr
 
@@ -60,7 +60,7 @@ $ west build -b pandora_stm32l475 -p
 $ west flash
 ```
 
-Test GPIO and I2C:
+## Test GPIO and I2C:
 
 - i2c device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/dts/arm/st/l4/stm32l4.dtsi
 - gpio pinctrl definition: https://github.com/zephyrproject-rtos/hal_stm32/blob/main/dts/st/l4/stm32l475v(c-e-g)tx-pinctrl.dtsi
@@ -85,7 +85,7 @@ uart:~$ i2c scan i2c@40005c00
 3 devices found on i2c@40005c00
 ```
 
-Test SPI LCD (st7789 240x240):
+## Test SPI LCD (st7789 240x240):
 
 - spi device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/boards/shields/st7789v_generic/st7789v_tl019fqv01.overlay
 
