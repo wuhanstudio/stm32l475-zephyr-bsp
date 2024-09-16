@@ -85,3 +85,7 @@ uart:~$ i2c scan i2c@40005c00
 3 devices found on i2c@40005c00
 ```
 
+Test SPI LCD (st7789 240x240):
+
+- spi device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/boards/shields/st7789v_generic/st7789v_tl019fqv01.overlay
+
