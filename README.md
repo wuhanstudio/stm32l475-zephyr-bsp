@@ -30,11 +30,22 @@ $ sudo udevadm trigger
 Step 3: Examples
 
 ```
+$ source ~/zephyrproject/zephyr/zephyr-env.sh
 $ cd ~/zephyrproject/zephyr/samples/hello_world
-
-# Add modules (Optional)
-$ west build -t menuconfig
 
 $ west build -b pandora_stm32l475
 $ west flash
+```
+
+Step 4: Add modules (Optional)
+
+```
+$ west build -b pandora_stm32l475 -t menuconfig
+
+Subsystems and OS Services  --->
+  [*] Shell  --->
+
+[D] Save minimal config (advanced)
+
+$ cat build/zephyr/kconfig/defconfig > prj.conf
 ```
