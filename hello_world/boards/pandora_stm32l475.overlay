@@ -12,7 +12,7 @@
 		spi-dev = <&spi3>;
 		write-only;
 
-		dc-gpios = <&gpiob 4 GPIO_ACTIVE_HIGH>;		/* DET */
+		dc-gpios    = <&gpiob 4 GPIO_ACTIVE_HIGH>;	/* DET */
 		reset-gpios = <&gpiob 6 GPIO_ACTIVE_LOW>;	/* RESX reset */
 
 		#address-cells = <1>;
@@ -67,3 +67,4 @@
 
 	cs-gpios = <&gpiod 7 GPIO_ACTIVE_LOW>;
 };
+
