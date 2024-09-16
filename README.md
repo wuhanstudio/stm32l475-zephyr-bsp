@@ -43,12 +43,18 @@ Step 4: Add modules (Optional)
 
 ```
 $ west build -b pandora_stm32l475 -t menuconfig
-
+```
+```
 Subsystems and OS Services  --->
   [*] Shell  --->
-
+Device Drivers  --->
+  [*] General-Purpose Input/Output (GPIO) drivers  --->
+    [*] GPIO Shell
+  [*] Inter-Integrated Circuit (I2C) bus drivers  --->
+    [*] I2C Shell
 [D] Save minimal config (advanced)
-
+```
+```
 $ cat build/zephyr/kconfig/defconfig > prj.conf
 ```
 
