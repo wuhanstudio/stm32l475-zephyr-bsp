@@ -43,12 +43,42 @@ Step 4: Add modules (Optional)
 
 ```
 $ west build -b pandora_stm32l475 -t menuconfig
-
+```
+```
 Subsystems and OS Services  --->
   [*] Shell  --->
-
+Device Drivers  --->
+  [*] General-Purpose Input/Output (GPIO) drivers  --->
+    [*] GPIO Shell
+  [*] Inter-Integrated Circuit (I2C) bus drivers  --->
+    [*] I2C Shell
 [D] Save minimal config (advanced)
-
+```
+```
 $ cat build/zephyr/kconfig/defconfig > prj.conf
+$ west build -b pandora_stm32l475 -p
+$ west flash
+```
+
+Test GPIO and I2C:
+
+```
+# LED: PE8
+uart:~$ gpio conf gpio@48001000 8 o
+uart:~$ gpio set gpio@48001000 8 0
+uart:~$ gpio set gpio@48001000 8 1
+
+# I2C3: i2c3_scl_pc0 &i2c3_sda_pc1
+uart:~$ i2c scan i2c@40005c00 
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:             -- -- -- -- -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- 1e -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+3 devices found on i2c@40005c00
 ```
 
