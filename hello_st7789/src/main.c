@@ -14,16 +14,10 @@
 #include <zephyr/device.h>
 #include <zephyr/drivers/display.h>
 
-#include <lvgl.h>
-#include "lvgl_sample.h"
-
-
 #define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app);
 
-#include <zephyr/logging/log.h>
-LOG_MODULE_REGISTER(sample, LOG_LEVEL_INF);
 #include <zephyr/drivers/gpio.h>
 
 #include "fill_buf.h"
