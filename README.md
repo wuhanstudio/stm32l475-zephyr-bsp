@@ -89,3 +89,9 @@ Test SPI LCD (st7789 240x240):
 
 - spi device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/boards/shields/st7789v_generic/st7789v_tl019fqv01.overlay
 
+```
+$ cd hello_st7789
+
+$ west build -b pandora_stm32l475
+$ west flash
+```
