@@ -62,6 +62,9 @@ $ west flash
 
 Test GPIO and I2C:
 
+- i2c device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/dts/arm/st/l4/stm32l4.dtsi
+- gpio pinctrl definition: https://github.com/zephyrproject-rtos/hal_stm32/blob/main/dts/st/l4/stm32l475v(c-e-g)tx-pinctrl.dtsi
+
 ```
 # LED: PE8
 uart:~$ gpio conf gpio@48001000 8 o
