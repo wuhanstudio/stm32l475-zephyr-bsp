@@ -36,19 +36,13 @@ int main(void)
 
 	lv_sample();
 
-	printf("Demo created \n");
-
 	gpio_pin_configure_dt(&led, GPIO_OUTPUT);
 	gpio_pin_set(led.port, led.pin, 1);
 	display_blanking_off(display_dev);
 
-	printf("Main Loop \n");
-
-	// lv_task_handler();
-
 	while (1) {
-		lv_task_handler();
 		k_sleep(K_MSEC(10));
+		lv_task_handler();
 	}
 
 	return 0;
