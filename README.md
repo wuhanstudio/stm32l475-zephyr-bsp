@@ -95,3 +95,6 @@ $ cd hello_st7789
 $ west build -b pandora_stm32l475
 $ west flash
 ```
+
+![](demo.gif)
+
