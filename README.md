@@ -1,3 +1,7 @@
+# Zephyr Device Tree (ST7789 + LVGL)
+
+![](demo.gif)
+
 ## Quick Start
 
 Step 1: Install Zephyr
@@ -95,6 +99,4 @@ $ cd hello_st7789
 $ west build -b pandora_stm32l475
 $ west flash
 ```
-
-![](demo.gif)
 
