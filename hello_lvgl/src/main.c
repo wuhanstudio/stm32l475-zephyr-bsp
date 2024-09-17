@@ -10,10 +10,13 @@
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/display.h>
+#include <zephyr/drivers/gpio.h>
 
 #include <lvgl.h>
 #include "lvgl_sample.h"
 
+#define LED0_NODE DT_ALIAS(led0) 
+static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
 
 #define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
 #include <zephyr/logging/log.h>
@@ -32,8 +35,16 @@ int main(void)
 	}
 
 	lv_sample();
-	lv_task_handler();
+
+	printf("Demo created \n");
+
+	gpio_pin_configure_dt(&led, GPIO_OUTPUT);
+	gpio_pin_set(led.port, led.pin, 1);
 	display_blanking_off(display_dev);
+
+	printf("Main Loop \n");
+
+	// lv_task_handler();
 
 	while (1) {
 		lv_task_handler();
