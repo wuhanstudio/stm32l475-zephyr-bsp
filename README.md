@@ -100,3 +100,11 @@ $ west build -b pandora_stm32l475
 $ west flash
 ```
 
+## Test LVGL (MIPI DBI):
+
+```
+$ cd hello_lvgl
+
+$ west build -b pandora_stm32l475
+$ west flash
+```
