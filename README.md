@@ -37,7 +37,7 @@ Step 3: Examples
 $ source ~/zephyrproject/zephyr/zephyr-env.sh
 
 $ git clone https://github.com/wuhanstudio/stm32l475-zephyr-bsp
-$ cd hello_world
+$ cd stm32l475-zephyr-bsp/hello_world
 
 $ west build -b pandora_stm32l475
 $ west flash
