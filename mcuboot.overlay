@@ -20,7 +20,7 @@
 		};
 		slot1_partition: partition@46000 {
 			label = "image-1";
-			reg = <0x00046000 0x3000>;
+			reg = <0x00046000 0x3a000>;
 		};
 	};
 };
