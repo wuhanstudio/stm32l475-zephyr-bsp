@@ -137,6 +137,9 @@ $ west flash
 # Step 2: Build Zephyr Application
 $ cd hello_mcuboot
 $ west build -b pandora_stm32l475
-$ pyocd flash -t stm32l475xe -a 0x800c000 ~/mcuboot/zephyr.bin
+
+# Step 3: Sign the firmware
+$ ../mcuboot/scripts/imgtool.py sign -k ../mcuboot/root-rsa-2048.pem build/zephyr/zephyr.bin build/zephyr/zephyr.signed.bin -v 0.0.1 --header-size 0x200 --slot-size 0x3a000
+$ pyocd flash -t stm32l475xe -a 0x800c000 build/zephyr/zephyr.signed.bin
 ```
 
