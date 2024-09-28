@@ -39,7 +39,7 @@ $ sudo udevadm trigger
 ```
 
 
-Step 3: Examples
+Step 3: Hello-World Example
 
 ```
 $ source ~/zephyrproject/zephyr/zephyr-env.sh
@@ -72,10 +72,17 @@ $ west build -b pandora_stm32l475 -p
 $ west flash
 ```
 
-## Test GPIO and I2C:
+## Project 1: GPIO and I2C:
 
 - i2c device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/dts/arm/st/l4/stm32l4.dtsi
 - gpio pinctrl definition: https://github.com/zephyrproject-rtos/hal_stm32/blob/main/dts/st/l4/stm32l475v(c-e-g)tx-pinctrl.dtsi
+
+```
+$ cd hello_world
+
+$ west build -b pandora_stm32l475
+$ west flash
+```
 
 ```
 # LED: PE8
@@ -97,7 +104,7 @@ uart:~$ i2c scan i2c@40005c00
 3 devices found on i2c@40005c00
 ```
 
-## Test SPI LCD (st7789 240x240):
+## Project 2: SPI LCD (st7789 240x240):
 
 - spi device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/boards/shields/st7789v_generic/st7789v_tl019fqv01.overlay
 
@@ -108,7 +115,7 @@ $ west build -b pandora_stm32l475
 $ west flash
 ```
 
-## Test LVGL (MIPI DBI):
+## Project 3: LVGL (MIPI DBI):
 
 ```
 $ cd hello_lvgl
@@ -116,3 +123,20 @@ $ cd hello_lvgl
 $ west build -b pandora_stm32l475
 $ west flash
 ```
+
+## Project 4: MCUBoot
+
+```
+# Step 1: Build MCUBoot (bootloader)
+$ git clone https://github.com/mcu-tools/mcuboot
+$ cp mcuboot.overlay mcuboot/boot/zephyr/app.overlay
+$ cd mcuboot/boot/zephyr
+$ west build -b pandora_stm32l475
+$ west flash
+
+# Step 2: Build Zephyr Application
+$ cd hello_mcuboot
+$ west build -b pandora_stm32l475
+$ pyocd flash -t stm32l475xe -a 0x800c000 ~/mcuboot/zephyr.bin
+```
+
