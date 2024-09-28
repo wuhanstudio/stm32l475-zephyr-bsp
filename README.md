@@ -2,6 +2,9 @@
 
 ![](demo.gif)
 
+> $ west flash  
+> $ st-flash write build/zephyr/zephyr.bin 0x8000000  
+
 ## Quick Start
 
 Step 1: Install Zephyr
