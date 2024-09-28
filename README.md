@@ -130,6 +130,7 @@ $ west flash
 # Step 1: Build MCUBoot (bootloader)
 $ git clone https://github.com/mcu-tools/mcuboot
 $ cp mcuboot.overlay mcuboot/boot/zephyr/app.overlay
+$ cp mcuboot.conf mcuboot/boot/zephyr/prj.conf
 $ cd mcuboot/boot/zephyr
 $ west build -b pandora_stm32l475
 $ west flash
