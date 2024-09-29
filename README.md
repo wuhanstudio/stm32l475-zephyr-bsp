@@ -86,7 +86,7 @@ $ west flash
 ```
 
 <!-- TOC --><a name="project-1-gpio-and-i2c"></a>
-## Project 1: GPIO and I2C:
+## Project 1: GPIO and I2C
 
 - i2c device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/dts/arm/st/l4/stm32l4.dtsi
 - gpio pinctrl definition: https://github.com/zephyrproject-rtos/hal_stm32/blob/main/dts/st/l4/stm32l475v(c-e-g)tx-pinctrl.dtsi
@@ -119,7 +119,7 @@ uart:~$ i2c scan i2c@40005c00
 ```
 
 <!-- TOC --><a name="project-2-spi-lcd-st7789-240x240"></a>
-## Project 2: SPI LCD (st7789 240x240):
+## Project 2: SPI LCD (st7789 240x240)
 
 - spi device tree: https://github.com/zephyrproject-rtos/zephyr/blob/main/boards/shields/st7789v_generic/st7789v_tl019fqv01.overlay
 
@@ -131,7 +131,7 @@ $ west flash
 ```
 
 <!-- TOC --><a name="project-3-lvgl-mipi-dbi"></a>
-## Project 3: LVGL (MIPI DBI):
+## Project 3: LVGL (MIPI DBI)
 
 ```
 $ cd hello_lvgl
