@@ -83,9 +83,9 @@
 			label = "image-0";
 			reg = <0x00010000 DT_SIZE_K(96)>;
 		};
-		slot1_partition: partition@18000 {
+		slot1_partition: partition@28000 {
 			label = "image-1";
-			reg = <0x00018000 DT_SIZE_K(96)>;
+			reg = <0x00028000 DT_SIZE_K(96)>;
 		};
 	};
 };

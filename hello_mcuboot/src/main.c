@@ -10,5 +10,8 @@ int main(void)
 {
 	printf("Hello World! %s\n", CONFIG_BOARD_TARGET);
 
+	const char *buildString = "This build " CONFIG_BOARD_TARGET " was compiled at " __DATE__ ", " __TIME__ ".";
+	printf("%s\n", buildString);
+
 	return 0;
 }
