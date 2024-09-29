@@ -17,7 +17,7 @@
 > $ west flash
 >   
 > $ st-info --probe  
-> $ st-flash write build/zephyr/zephyr.bin 0x8000000  
+> $ st-flash --connect-under-reset write build/zephyr/zephyr.bin 0x8000000  
 >   
 > $ pyocd list  
 > $ pyocd flash -t stm32l475xe -a 0x8000000 build/zephyr/zephyr.bin    
