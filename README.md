@@ -2,9 +2,9 @@
 
 - [Zephyr Device Tree (ST7789 + LVGL)](#zephyr-device-tree-st7789-lvgl)
    * [Quick Start](#quick-start)
-   * [Project 1: GPIO and I2C:](#project-1-gpio-and-i2c)
-   * [Project 2: SPI LCD (st7789 240x240):](#project-2-spi-lcd-st7789-240x240)
-   * [Project 3: LVGL (MIPI DBI):](#project-3-lvgl-mipi-dbi)
+   * [Project 1: GPIO and I2C](#project-1-gpio-and-i2c)
+   * [Project 2: SPI LCD (st7789 240x240)](#project-2-spi-lcd-st7789-240x240)
+   * [Project 3: LVGL (MIPI DBI)](#project-3-lvgl-mipi-dbi)
    * [Project 4: MCUBoot](#project-4-mcuboot)
 
 <!-- TOC end -->
