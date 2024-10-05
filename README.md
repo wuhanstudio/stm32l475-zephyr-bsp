@@ -10,9 +10,7 @@
 <!-- TOC end -->
 
 <!-- TOC --><a name="zephyr-device-tree-st7789-lvgl"></a>
-# Zephyr Device Tree (ST7789 + LVGL)
-
-![](demo.gif)
+# Zephyr Examples
 
 > $ west flash
 >   
@@ -134,6 +132,8 @@ $ west flash
 <!-- TOC --><a name="project-3-lvgl-mipi-dbi"></a>
 ## Project 3: LVGL (MIPI DBI)
 
+![](demo.gif)
+
 ```
 $ source ~/zephyrproject/zephyr/zephyr-env.sh
 $ cd hello_lvgl
@@ -177,3 +177,7 @@ $ pyocd flash -t stm32l475xe -a 0x8028000 build/zephyr/zephyr.signed.confirmed.b
 $ ../mcuboot/scripts/imgtool.py sign -k ../mcuboot/root-rsa-2048.pem build/zephyr/zephyr.bin build/zephyr/zephyr.signed.test.bin -v 0.0.1 --pad --header-size 0x200 --slot-size 0x18000
 $ pyocd flash -t stm32l475xe -a 0x8028000 build/zephyr/zephyr.signed.test.bin
 ```
+
+## Project 5: IMU Filter (ICM60208)
+
+![](imu.gif)
