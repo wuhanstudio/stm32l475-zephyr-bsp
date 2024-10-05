@@ -182,3 +182,11 @@ $ pyocd flash -t stm32l475xe -a 0x8028000 build/zephyr/zephyr.signed.test.bin
 ## Project 5: IMU Filter (ICM60208)
 
 ![](imu.gif)
+
+```
+$ source ~/zephyrproject/zephyr/zephyr-env.sh
+$ cd hello_icm20608
+
+$ west build -b pandora_stm32l475
+$ west flash
+```
