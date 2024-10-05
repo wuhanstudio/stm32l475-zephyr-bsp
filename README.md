@@ -6,6 +6,7 @@
    * [Project 2: SPI LCD (st7789 240x240)](#project-2-spi-lcd-st7789-240x240)
    * [Project 3: LVGL (MIPI DBI)](#project-3-lvgl-mipi-dbi)
    * [Project 4: MCUBoot](#project-4-mcuboot)
+   * [Project 5: IMU Filter (ICM20608)](#project-5-imu-filter-icm60208)
 
 <!-- TOC end -->
 
@@ -177,7 +178,7 @@ $ pyocd flash -t stm32l475xe -a 0x8028000 build/zephyr/zephyr.signed.confirmed.b
 $ ../mcuboot/scripts/imgtool.py sign -k ../mcuboot/root-rsa-2048.pem build/zephyr/zephyr.bin build/zephyr/zephyr.signed.test.bin -v 0.0.1 --pad --header-size 0x200 --slot-size 0x18000
 $ pyocd flash -t stm32l475xe -a 0x8028000 build/zephyr/zephyr.signed.test.bin
 ```
-
+<!-- TOC --><a name="project-5-imu-filter"></a>
 ## Project 5: IMU Filter (ICM60208)
 
 ![](imu.gif)
