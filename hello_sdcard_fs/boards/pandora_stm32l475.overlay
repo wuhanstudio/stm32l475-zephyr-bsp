@@ -1,0 +1,47 @@
+&i2c3 {
+    compatible = "st,stm32-i2c-v2";
+    pinctrl-0 = <&i2c3_scl_pc0 &i2c3_sda_pc1>;
+    pinctrl-names = "default";
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+    status = "okay";
+};
+
+&spi1 {
+  	status = "okay";
+  	pinctrl-0 = <&spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7>;
+    pinctrl-names = "default";
+    cs-gpios = <&gpioc 3 GPIO_ACTIVE_LOW>;
+
+	sdhc0: sdhc@0 {
+		compatible = "zephyr,sdhc-spi-slot";
+		reg = <0>;
+		status = "okay";
+		spi-max-frequency = <24000000>;
+		mmc {
+			compatible = "zephyr,sdmmc-disk";
+			status = "okay";
+		};
+	};
+};
+
+&spi3 {
+    status = "okay";
+
+    pinctrl-0 = <&spi3_sck_pb3 &spi3_miso_pb4 &spi3_mosi_pb5>;
+    pinctrl-names = "default";
+
+    cs-gpios = <&gpiod 7 GPIO_ACTIVE_LOW>;
+};
+
+&w25q128jv {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		external_partition: partition@0 {
+			label = "storage";
+			reg = <0x00000000 DT_SIZE_M(16)>;
+		};
+	};
+};

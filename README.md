@@ -7,6 +7,7 @@
    * [Project 3: LVGL (MIPI DBI)](#project-3-lvgl-mipi-dbi)
    * [Project 4: MCUBoot](#project-4-mcuboot)
    * [Project 5: IMU Filter (ICM20608)](#project-5-imu-filter-icm60208)
+   * [Project 6: SD Card File System (SPI)](#project-6-sd-card-filte-system-spi)
 
 <!-- TOC end -->
 
@@ -190,4 +191,33 @@ $ cd hello_icm20608
 
 $ west build -b pandora_stm32l475
 $ west flash
+```
+
+<!-- TOC --><a name="project-6-sd-card-filte-system-spi"></a>
+## Project 6: SD Card File System (SPI)
+
+```
+$ source ~/zephyrproject/zephyr/zephyr-env.sh
+$ cd hello_sdcard_fs
+
+$ west build -b pandora_stm32l475
+$ west flash
+```
+
+Console output:
+
+```
+*** Booting Zephyr OS build v3.7.0-3953-g1bbeeadfbf43 ***
+[00:00:00.032,000] <inf> main: Block count 3934208
+Sector size 512
+Memory Size(MB) 1921
+[00:00:00.064,000] <inf> sd: Maximum SD clock is under 25MHz, using clock of 24000000Hz
+Disk mounted.
+[00:00:00.100,000] <inf> sd: Maximum SD clock is under 25MHz, using clock of 24000000Hz
+
+Listing dir /SD: ...
+[FILE] VERSION.ASP (size = 215)
+[FILE] INDEX~1.HTM (size = 0)
+[DIR ] WEBNET
+uart:~$ 
 ```
