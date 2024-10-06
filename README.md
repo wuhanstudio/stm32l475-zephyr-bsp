@@ -229,6 +229,12 @@ uart:~$
 <!-- TOC --><a name="project-7-wifi-scan-esp-at"></a>
 ## Project 7: Wifi Scan (esp-at)
 
+A very useful post that explains how to flash AT firmware v2.2 to ESP8266:  
+
+(The official released firmware won't work because RX/TX pins were changed for some reason)
+
+https://www.sigmdel.ca/michel/ha/esp8266/ESP01_AT_Firmware_en.html
+
 ```
 $ source ~/zephyrproject/zephyr/zephyr-env.sh
 $ cd hello_at_wifi
