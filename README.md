@@ -183,6 +183,7 @@ $ pyocd flash -t stm32l475xe -a 0x8028000 build/zephyr/zephyr.signed.test.bin
 
 ![](imu.gif)
 
+Please wait for this PR to be merged: https://github.com/zephyrproject-rtos/zephyr/pull/79465
 ```
 $ source ~/zephyrproject/zephyr/zephyr-env.sh
 $ cd hello_icm20608
