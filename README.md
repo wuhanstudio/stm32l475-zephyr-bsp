@@ -8,6 +8,8 @@
    * [Project 4: MCUBoot](#project-4-mcuboot)
    * [Project 5: IMU Filter (ICM20608)](#project-5-imu-filter-icm60208)
    * [Project 6: SD Card File System (SPI)](#project-6-sd-card-filte-system-spi)
+   * [Project 7: Wifi Scan (esp-at)](#project-7-wifi-scan-esp-at)
+   * [Project 8: W25Q128 NOR Flash (QSPI)](#project-8-w25q128-nor-flash-qspi)
 
 <!-- TOC end -->
 
@@ -97,6 +99,8 @@ $ cd hello_world
 $ west build -b pandora_stm32l475
 $ west flash
 ```
+
+Change GPIO pin output and scan I2C bus:
 
 ```
 # LED: PE8
@@ -204,7 +208,7 @@ $ west build -b pandora_stm32l475
 $ west flash
 ```
 
-Console output:
+List all files on the SD card:
 
 ```
 *** Booting Zephyr OS build v3.7.0-3953-g1bbeeadfbf43 ***
@@ -220,4 +224,58 @@ Listing dir /SD: ...
 [FILE] INDEX~1.HTM (size = 0)
 [DIR ] WEBNET
 uart:~$ 
+```
+
+<!-- TOC --><a name="project-7-wifi-scan-esp-at"></a>
+## Project 7: Wifi Scan (esp-at)
+
+```
+$ source ~/zephyrproject/zephyr/zephyr-env.sh
+$ cd hello_at_wifi
+
+$ west build -b pandora_stm32l475
+$ west flash
+```
+
+Connect to a WIFI and show IP addresses:
+
+```
+[00:00:00.100,000] <inf> wifi_esp_at: Waiting for interface to come up
+[00:00:00.488,000] <inf> wifi_esp_at: AT version: 1.4.0.0(May  5 2017 16:10:59)
+[00:00:00.491,000] <inf> wifi_esp_at: SDK version: 2.1.0(116b762)
+[00:00:00.867,000] <inf> wifi_esp_at: ESP Wi-Fi ready
+*** Booting Zephyr OS build v3.7.0-3953-g1bbeeadfbf43 ***
+uart:~$ wifi scan
+uart:~$ wifi connect -s "<SSID>" -k 1 -p PASS_WORD
+
+uart:~$ net ipv4
+IPv4 support                              : enabled
+IPv4 fragmentation support                : disabled
+IPv4 conflict detection support           : disabled
+Max number of IPv4 network interfaces in the system          : 2
+Max number of unicast IPv4 addresses per network interface   : 1
+Max number of multicast IPv4 addresses per network interface : 2
+
+IPv4 addresses for interface 1 (0x200009e4) (IP Offload)
+======================================================
+Type      	State    	Ref	Address
+DHCP  	preferred    	1	192.168.1.106/255.255.255.0
+
+IPv4 addresses for interface 2 (0x20000aec) (Dummy)
+=================================================
+Type      	State    	Ref	Address
+autoconf  	preferred    	1	127.0.0.1/255.0.0.0
+```
+
+<!-- TOC --><a name="project-8-w25q128-nor-flash-qspi"></a>
+## Project 8: W25Q128 NOR Flash (QSPI)
+
+Known issue: https://github.com/zephyrproject-rtos/zephyr/issues/75345
+
+```
+$ source ~/zephyrproject/zephyr/zephyr-env.sh
+$ cd hello_qspi_flash
+
+$ west build -b pandora_stm32l475
+$ west flash
 ```
