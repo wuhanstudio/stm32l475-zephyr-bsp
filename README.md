@@ -1,6 +1,6 @@
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
-- [Zephyr Device Tree (ST7789 + LVGL)](#zephyr-device-tree-st7789-lvgl)
+- [Zephyr Device Tree Examples](#zephyr-device-tree-examples)
    * [Quick Start](#quick-start)
    * [Project 1: GPIO and I2C](#project-1-gpio-and-i2c)
    * [Project 2: SPI LCD (st7789 240x240)](#project-2-spi-lcd-st7789-240x240)
@@ -11,8 +11,8 @@
 
 <!-- TOC end -->
 
-<!-- TOC --><a name="zephyr-device-tree-st7789-lvgl"></a>
-# Zephyr Examples
+<!-- TOC --><a name="zephyr-device-tree-examples"></a>
+# Zephyr Device Tree Examples
 
 > $ west flash
 >   
