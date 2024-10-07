@@ -195,6 +195,9 @@ $ cd hello_icm20608
 
 $ west build -b pandora_stm32l475
 $ west flash
+
+$ pip install pyserial pygame pyopengl
+$ python cube.py
 ```
 
 <!-- TOC --><a name="project-6-sd-card-filte-system-spi"></a>
