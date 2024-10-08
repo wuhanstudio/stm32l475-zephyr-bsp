@@ -10,7 +10,8 @@
                 "-b",
                 "${config:bsp.board}"
             ],
-            "problemMatcher": []
+            "problemMatcher": [],
+            "dependsOn": []
         },
         {
             "label": "Full Build",
@@ -24,7 +25,8 @@
                 "-b",
                 "${config:bsp.board}"
             ],
-            "problemMatcher": []
+            "problemMatcher": [],
+            "dependsOn": []
         },
         {
             "label": "Flash",
@@ -34,7 +36,8 @@
             "args": [
                 "flash"
             ],
-            "problemMatcher": []
+            "problemMatcher": [],
+            "dependsOn": []
         }
     ]
 }
