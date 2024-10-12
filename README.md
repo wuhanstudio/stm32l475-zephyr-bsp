@@ -280,7 +280,15 @@ autoconf  	preferred    	1	127.0.0.1/255.0.0.0
 <!-- TOC --><a name="project-8-w25q128-nor-flash-qspi"></a>
 ## Project 8: W25Q128 NOR Flash (QSPI)
 
-Known issue: https://github.com/zephyrproject-rtos/zephyr/issues/75345
+Known issue (solved): https://github.com/zephyrproject-rtos/zephyr/issues/75345
+
+Change the write command to 0x32 (default value: PP_1_4_4 uses the instruction 0x38, which is not supported by w25q128jv). 
+
+```
+&w25q128jv {
+    writeoc = "PP_1_1_4";
+}
+```
 
 ```
 $ source ~/zephyrproject/zephyr/zephyr-env.sh
