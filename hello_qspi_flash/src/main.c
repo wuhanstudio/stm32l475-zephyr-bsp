@@ -11,28 +11,12 @@
 #include <stdio.h>
 #include <string.h>
 
-#define SPI_FLASH_TEST_REGION_OFFSET 0xff000
+#define SPI_FLASH_TEST_REGION_OFFSET 0xff0000
 #define SPI_FLASH_SECTOR_SIZE        4096
 
-#if defined(CONFIG_FLASH_STM32_OSPI) || \
-	defined(CONFIG_FLASH_STM32_QSPI) || \
-	defined(CONFIG_FLASH_STM32_XSPI)
 #define SPI_FLASH_MULTI_SECTOR_TEST
-#endif
 
-#if DT_HAS_COMPAT_STATUS_OKAY(jedec_spi_nor)
-#define SPI_FLASH_COMPAT jedec_spi_nor
-#elif DT_HAS_COMPAT_STATUS_OKAY(st_stm32_qspi_nor)
 #define SPI_FLASH_COMPAT st_stm32_qspi_nor
-#elif DT_HAS_COMPAT_STATUS_OKAY(st_stm32_ospi_nor)
-#define SPI_FLASH_COMPAT st_stm32_ospi_nor
-#elif DT_HAS_COMPAT_STATUS_OKAY(st_stm32_xspi_nor)
-#define SPI_FLASH_COMPAT st_stm32_xspi_nor
-#elif DT_HAS_COMPAT_STATUS_OKAY(nordic_qspi_nor)
-#define SPI_FLASH_COMPAT nordic_qspi_nor
-#else
-#define SPI_FLASH_COMPAT invalid
-#endif
 
 const uint8_t erased[] = { 0xff, 0xff, 0xff, 0xff };
 
@@ -200,6 +184,10 @@ int main(void)
 		printk("%s: device not ready.\n", flash_dev->name);
 		return 0;
 	}
+
+	uint8_t id;
+	flash_read_jedec_id(flash_dev, &id);
+	printf("\n%s SPI flash ID: 0x%02x\n", flash_dev->name, id);
 
 	printf("\n%s SPI flash testing\n", flash_dev->name);
 	printf("==========================\n");
