@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <stdio.h>
+
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(net_http_client_sample, LOG_LEVEL_DBG);
 
@@ -11,9 +13,9 @@ LOG_MODULE_REGISTER(net_http_client_sample, LOG_LEVEL_DBG);
 #include <zephyr/net/socket.h>
 #include <zephyr/net/http/client.h>
 
-#include "net_sample_common.h"
+#include "wait_for_wifi.h"
 
-#define SERVER_ADDR4 "192.168.12.48"
+#define SERVER_ADDR4 "192.168.12.1"
 #define HTTP_PORT 8000
 
 #define MAX_RECV_BUF_LEN 512
@@ -80,6 +82,12 @@ static void response_cb(struct http_response *rsp,
 	} else if (final_data == HTTP_DATA_FINAL) {
 		LOG_INF("All the data received (%zd bytes)", rsp->data_len);
 	}
+
+	// Print out the response
+	for(int i = 0; i < rsp->data_len; i++) {
+		printf("%c", rsp->recv_buf[i]);
+	}
+	printf("\n");
 
 	LOG_INF("Response to %s", (const char *)user_data);
 	LOG_INF("Response status %s", rsp->http_status);
@@ -223,8 +231,8 @@ static int run_queries(void)
 int main(void)
 {
 	LOG_INF("Starting HTTP sample");
-	// wait_for_network();
-	// LOG_INF("Network Connected");
+	wait_for_wifi();
+	LOG_INF("Wifi Connected");
 
 	int iterations = 10;
 

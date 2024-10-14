@@ -11,12 +11,6 @@ class HTTPServerV4(HTTPServer):
     address_family = socket.AF_INET
 
 class RequestHandler(SimpleHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html')
-        self.end_headers()
-        self.wfile.write(b'Hello, World!')
-
     def do_POST(self):
         # Check if Content-Length is provided
         content_length = self.headers.get('Content-Length')
