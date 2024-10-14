@@ -8,7 +8,7 @@
    * [Project 4: MCUBoot](#project-4-mcuboot)
    * [Project 5: IMU Filter (ICM20608)](#project-5-imu-filter-icm60208)
    * [Project 6: SD Card File System (SPI)](#project-6-sd-card-filte-system-spi)
-   * [Project 7: Wifi Scan (esp-at)](#project-7-wifi-scan-esp-at)
+   * [Project 7: Wifi HTTP Request (esp-at)](#project-7-wifi-http-request-esp-at)
    * [Project 8: W25Q128 NOR Flash (QSPI)](#project-8-w25q128-nor-flash-qspi)
 
 <!-- TOC end -->
@@ -230,8 +230,8 @@ Listing dir /SD: ...
 uart:~$ 
 ```
 
-<!-- TOC --><a name="project-7-wifi-scan-esp-at"></a>
-## Project 7: Wifi Scan (esp-at)
+<!-- TOC --><a name="project-7-wifi-http-request-esp-at"></a>
+## Project 7: Wifi HTTP Request (esp-at)
 
 A very useful post that explains how to flash AT firmware v2.2 to ESP8266:  
 
@@ -245,16 +245,22 @@ $ cd hello_at_wifi
 
 $ west build -b pandora_stm32l475
 $ west flash
+
+# Start the HTTP server and listening on port 8000
+$ python http-server.py
 ```
 
 Connect to a WIFI and show IP addresses:
 
 ```
 [00:00:00.100,000] <inf> wifi_esp_at: Waiting for interface to come up
-[00:00:00.488,000] <inf> wifi_esp_at: AT version: 1.4.0.0(May  5 2017 16:10:59)
-[00:00:00.491,000] <inf> wifi_esp_at: SDK version: 2.1.0(116b762)
-[00:00:00.867,000] <inf> wifi_esp_at: ESP Wi-Fi ready
-*** Booting Zephyr OS build v3.7.0-3953-g1bbeeadfbf43 ***
+[00:00:00.549,000] <inf> wifi_esp_at: AT version: 2.2.0.0(s-b097cdf - ESP8266 - Jun 17 2021 12:58:29)
+[00:00:00.551,000] <inf> wifi_esp_at: SDK version: v3.4-22-g967752e2
+[00:00:00.558,000] <inf> wifi_esp_at: Bin version: 2.2.0(ESP8266_1MB)
+[00:00:01.041,000] <inf> wifi_esp_at: ESP Wi-Fi ready
+[00:00:01.041,000] <dbg> net_tcp: net_tcp_init: (0x20002f98): Workq started. Thread ID: 0x20002078
+*** Booting Zephyr OS build v3.7.0-4340-gb5229c99dbec ***
+
 uart:~$ wifi scan
 uart:~$ wifi connect -s "<SSID>" -k 1 -p PASS_WORD
 
@@ -284,7 +290,7 @@ autoconf  	preferred    	1	127.0.0.1/255.0.0.0
 
 **Solution**: Change the write command to `0x32`.  
 
-(The default value: `PP_1_4_4` uses the write command `0x38`, which is not supported by w25q128jv). 
+The default value: `PP_1_4_4` uses the write command `0x38`, which is not supported by w25q128jv. 
 
 ```
 &w25q128jv {
