@@ -10,7 +10,7 @@
    * [Project 6: SD Card File System (SPI)](#project-6-sd-card-filte-system-spi)
    * [Project 7: Wifi HTTP Request (esp-at)](#project-7-wifi-http-request-esp-at)
    * [Project 8: W25Q128 NOR Flash (QSPI)](#project-8-w25q128-nor-flash-qspi)
-
+   * [Project 9: USB CDC (ACM)](#project-9-usb-cdc-acm)
 <!-- TOC end -->
 
 <!-- TOC --><a name="zephyr-device-tree-examples"></a>
@@ -301,6 +301,28 @@ The default value: `PP_1_4_4` uses the write command `0x38`, which is not suppor
 ```
 $ source ~/zephyrproject/zephyr/zephyr-env.sh
 $ cd hello_qspi_flash
+
+$ west build -b pandora_stm32l475
+$ west flash
+```
+
+<!-- TOC --><a name="project-9-usb-cdc-acm"></a>
+## Project 9: USB CDC (ACM)
+
+Use UART1 for console output and USB CDC (ACM) for Zephyr shell.
+
+```
+/ {
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,shell-uart = &cdc_acm_uart0;
+	};
+};
+```
+
+```
+$ source ~/zephyrproject/zephyr/zephyr-env.sh
+$ cd hello_usb_cdc
 
 $ west build -b pandora_stm32l475
 $ west flash
