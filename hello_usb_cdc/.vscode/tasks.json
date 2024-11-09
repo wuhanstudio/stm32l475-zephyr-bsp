@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "group": "build",
+            "command": "${config:west.path}",
+            "args": [
+                "build",
+                "-b",
+                "${config:bsp.board}"
+            ],
+            "problemMatcher": [],
+            "dependsOn": []
+        },
+        {
+            "label": "Full Build",
+            "type": "shell",
+            "group": "build",
+            "command": "${config:west.path}",
+            "args": [
+                "build",
+                "-p",
+                "always",
+                "-b",
+                "${config:bsp.board}"
+            ],
+            "problemMatcher": [],
+            "dependsOn": []
+        },
+        {
+            "label": "Flash",
+            "type": "shell",
+            "group": "build",
+            "command": "${config:west.path}",
+            "args": [
+                "flash"
+            ],
+            "problemMatcher": [],
+            "dependsOn": []
+        }
+    ]
+}

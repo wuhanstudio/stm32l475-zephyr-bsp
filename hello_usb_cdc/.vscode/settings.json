@@ -1,0 +1,13 @@
+{
+    "west": {
+        "path": "/home/wuhanstudio/miniconda3/envs/zephyr/bin/west"
+    },
+    "zephyr": {
+        "path": "/home/wuhanstudio/zephyrproject"
+    },
+    "bsp": {
+        "board": "pandora_stm32l475",
+    },
+    "C_Cpp.default.compileCommands": "build/compile_commands.json",
+    "cmake.configureOnOpen": false
+}
