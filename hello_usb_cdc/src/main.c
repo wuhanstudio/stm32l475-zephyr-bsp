@@ -32,7 +32,8 @@ int main(void)
 	}
 
 	while (1) {
-		printk("Hello World! %s\n", CONFIG_ARCH);
+		printf("Hello Console! %s\n", CONFIG_ARCH); // Print to console only
+		printk("Hello Kernel! %s\n", CONFIG_ARCH); // Print to both console and shell
 		k_sleep(K_SECONDS(1));
 	}
 }
